@@ -63,3 +63,30 @@ function renderImg () {
     img3.timeShown += 1;
 }
 
+function handleClick (event) {
+    console.log(event.target); //event.target always represents the exact element where an event occured.
+
+    // identify which img was clicked
+    let imgClicked = event.target.id;
+    state.forEach(image => {
+        if (image.name === imgClicked) {
+            image.timesClicked += 1;
+        }
+    });
+
+    // re render the new img from img state
+    if (roundVotes) {
+        renderImg();
+        roundVotes--;
+        
+    } else {
+        voteTrackerEl.removeEventListener('click', handleClick);
+    }
+
+}
+
+voteTrackerEl.addEventListener('click', handleClick);
+
+
+
+
