@@ -1,6 +1,12 @@
 img {
-    width: 10em;
-    height: 10em;
+    width: 200px;
+    height: 200px;
     margin-left: 60px;
 }
 
+section {
+    border: 1px solid black;
+    margin: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;;
+}
