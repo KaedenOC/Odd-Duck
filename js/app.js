@@ -42,24 +42,36 @@ let voteTrackerEl = document.getElementById("vote-tracker")
 renderImg();
 
 function generateRandomImg () {
-    return Math.floor(Math.random() * state.length); //this will return a random number between 0 and the length of the array
+    let randomIndex = Math.floor(Math.random() * state.length);
+    let randomImg = state[randomIndex];
+
+    while (randomImg.name === imgEls[0].id || randomImg.name === imgEls[1].id || randomImg.name === imgEls[2].id) {
+        randomIndex = Math.floor(Math.random() * state.length);
+        randomImg = state[randomIndex];
+    }
+    
+    return randomImg
 }
 
 function renderImg () {
-    let img1 = state[generateRandomImg()];
-    let img2 = state[generateRandomImg()];
-    let img3 = state[generateRandomImg()];
+    let img1 = generateRandomImg();
+    let img2 = generateRandomImg();
+    let img3 = generateRandomImg();
+
     while (img1 === img2 || img1 === img3 || img2 === img3) { //this will check to see if the images are the same or not
-        img1 = state[generateRandomImg()];
-        img2 = state[generateRandomImg()];
-        img3 = state[generateRandomImg()];
+        img1 = generateRandomImg();
+        img2 = generateRandomImg();
+        img3 = generateRandomImg();
     }
+
     imgEls[0].src = img1.source;
     imgEls[0].id = img1.name;
     img1.timeShown += 1;
+
     imgEls[1].src = img2.source;
     imgEls[1].id = img2.name;
     img2.timeShown += 1;
+    
     imgEls[2].src = img3.source;
     imgEls[2].id = img3.name;
     img3.timeShown += 1;
@@ -79,7 +91,7 @@ function handleClick (event) {
     // re render the new img from img state
     if (roundVotes) {
         renderImg();
-        roundVotes--;
+        roundVotes--; //this will decrement the roundVotes by 1
         
     } else {
         voteTrackerEl.removeEventListener('click', handleClick);
