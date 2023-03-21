@@ -51,6 +51,8 @@ function renderImg () {
     let img3 = state[generateRandomImg()];
     while (img1 === img2 || img1 === img3 || img2 === img3) { //this will check to see if the images are the same or not
         img1 = state[generateRandomImg()];
+        img2 = state[generateRandomImg()];
+        img3 = state[generateRandomImg()];
     }
     imgEls[0].src = img1.source;
     imgEls[0].id = img1.name;
@@ -102,6 +104,4 @@ function showResults () {
 
 let resultsButton = document.getElementById('show-results');
 resultsButton.addEventListener('click', showResults);
-
-
 
