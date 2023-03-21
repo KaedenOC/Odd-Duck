@@ -30,27 +30,27 @@ state.push(new Image('tauntaun', '/img/tauntaun.jpg'));
 state.push(new Image('unicorn', '/img/unicorn.jpg'));
 state.push(new Image('water-can', '/img/water-can.jpg'));
 state.push(new Image('wine-glass', '/img/wine-glass.jpg'));
+//these are pushed to the front of the array
 
-
-let imgEls = document.querySelectorAll("img");
+let imgEls = document.querySelectorAll("img"); //this will grab all the images
 let voteTrackerEl = document.getElementById("vote-tracker")
-console.log(state);
-console.log(imgEls);
+// console.log(state);
+// console.log(imgEls);
 
 // create algorithm that will randomly generate three unique images from the directory and display them side by side in the browser window.
 
 renderImg();
 
 function generateRandomImg () {
-    return Math.floor(Math.random() * state.length);
+    return Math.floor(Math.random() * state.length); //this will return a random number between 0 and the length of the array
 }
 
 function renderImg () {
     let img1 = state[generateRandomImg()];
     let img2 = state[generateRandomImg()];
     let img3 = state[generateRandomImg()];
-    while (img1 === img2 || img1 === img3 || img2 === img3) {
-        img2 = state[generateRandomImg()];
+    while (img1 === img2 || img1 === img3 || img2 === img3) { //this will check to see if the images are the same or not
+        img1 = state[generateRandomImg()];
     }
     imgEls[0].src = img1.source;
     imgEls[0].id = img1.name;
@@ -81,12 +81,27 @@ function handleClick (event) {
         
     } else {
         voteTrackerEl.removeEventListener('click', handleClick);
+        
     }
 
-}
+};
 
 voteTrackerEl.addEventListener('click', handleClick);
 
+function showResults () {
+    let resultsEl = document.getElementById('results');
+    resultsEl.innerHTML = ''; //this will clear the results section
+
+    for (let i = 0; i < state.length; i++) {
+        let liEl = document.createElement('li');
+        liEl.textContent = `${state[i].name} had ${state[i].timesClicked} votes, and was seen ${state[i].timeShown} times.`;
+        resultsEl.appendChild(liEl);
+
+    }
+}
+
+let resultsButton = document.getElementById('show-results');
+resultsButton.addEventListener('click', showResults);
 
 
 
