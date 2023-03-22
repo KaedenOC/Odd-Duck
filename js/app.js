@@ -43,7 +43,7 @@ renderImg();
 
 function generateRandomImg () {
     let randomIndex = Math.floor(Math.random() * state.length);
-    let randomImg = state[randomIndex];
+    let randomImg = state[randomIndex]; //this will grab the random image from the state array
 
     while (randomImg.name === imgEls[0].id || randomImg.name === imgEls[1].id || randomImg.name === imgEls[2].id) {
         randomIndex = Math.floor(Math.random() * state.length);
@@ -81,7 +81,7 @@ function handleClick (event) {
     console.log(event.target); //event.target always represents the exact element where an event occured.
 
     // identify which img was clicked
-    let imgClicked = event.target.id;
+    let imgClicked = event.target.id; //event.target.id is the id of the img that was clicked.
     state.forEach(image => {
         if (image.name === imgClicked) {
             image.timesClicked += 1;
