@@ -12,3 +12,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+canvas {
+    width: 200px;
+}
