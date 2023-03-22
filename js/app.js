@@ -146,8 +146,6 @@ function renderChart () {
               'grey'
             ],
             borderWidth: 1
-            // backgroundColor: 'rgba(34, 166, 179, 3)',
-            // borderColor: 'rgba(34, 166, 179, 10)',
           },
           {
             label: '# of Votes',
@@ -173,6 +171,3 @@ function renderChart () {
     new Chart(canvasElement, myChart);
     
     }
-
-
-
