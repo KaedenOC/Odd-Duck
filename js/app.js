@@ -112,8 +112,67 @@ function showResults () {
         resultsEl.appendChild(liEl);
 
     }
+    renderChart();
 }
 
 let resultsButton = document.getElementById('show-results');
 resultsButton.addEventListener('click', showResults);
+
+
+let canvasElement = document.getElementById('draw-on-me').getContext('2d');
+
+
+function renderChart () {
+    let imgName = [];
+    let imgShown = [];
+    let imgVotes = [];
+
+    for (let i = 0; i < state.length; i++) {
+        imgName.push(state[i].name);
+        imgShown.push(state[i].timeShown);
+        imgVotes.push(state[i].timesClicked);
+    }
+    let myChart = {
+        type: 'bar',
+        data: {
+          labels: imgName,
+          datasets: [{
+            label: '# of Views',
+            data: imgShown,
+            backgroundColor: [
+              'grey'
+            ],
+            borderColor: [
+              'grey'
+            ],
+            borderWidth: 1
+            // backgroundColor: 'rgba(34, 166, 179, 3)',
+            // borderColor: 'rgba(34, 166, 179, 10)',
+          },
+          {
+            label: '# of Votes',
+            data: imgVotes,
+            backgroundColor: [
+              'lightblue'
+            ],
+            borderColor: [
+              'lightblue'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      };
+    
+    new Chart(canvasElement, myChart);
+    
+    }
+
+
 
