@@ -13,6 +13,9 @@ section {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-canvas {
-    width: 200px;
+
+#results {
+    overflow-y: scroll;
+    max-height: 200px;
 }
+
