@@ -21,7 +21,7 @@ let retrieveState = localStorage.getItem('state');
 // this code is checking whether there is stored data to restore the application's previous state, and if not, it initializes the state array with a predefined set of Image objects.
 
 if (retrieveState) {
-  let parsedState = JSON.parse(retrieveState); 
+  let parsedState = JSON.parse(retrieveState); // This code is parsing a JSON string that was previously stored in the browser's localStorage 
   state = parsedState;
 } else {
   state.push(new Image('bag', 'img/bag.jpg'));
