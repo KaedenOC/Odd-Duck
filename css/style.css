@@ -1,4 +1,11 @@
-img {
+body {
+    background-image: url(/img/oddduck2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.jsimg {
     width: 100%;
     /* margin-left: 60px; */
 }
@@ -6,7 +13,6 @@ img {
 section {
     margin-top: 50px;
     max-width: 400px;
-    /* margin: 25px; */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -31,4 +37,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-height: 100vh;
+    
 }
+
