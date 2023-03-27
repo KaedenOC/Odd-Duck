@@ -5,11 +5,11 @@ img {
 
 section {
     margin-top: 50px;
-    margin-left: 50px;
     max-width: 400px;
-    border: 1px solid black;
     /* margin: 25px; */
     display: grid;
+    justify-content: center;
+    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -19,3 +19,16 @@ section {
     max-height: 200px;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
